@@ -63,9 +63,9 @@ app.get('/reset', (req, res) => {
 
 app.use('/', indexRouter);
 
-// app.get('*', (req,res) =>{
-//     res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
-// });
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/frontend/build/index.html'));
+});
 
 // monitor connections from client
 io.on('connection', socket => {
