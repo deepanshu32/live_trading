@@ -5,8 +5,7 @@ const Trades = require("../models/trades");
 /* GET home page. */
 router.get('/stocks', async (req, res, next) => {
   try{
-    console.log("called");
-    let trades = await Trades.find({});
+    let trades = await Trades.find({}).limit(1000);
     const stocks = [...new Set(trades.map(trade => trade.sym))];
     res.json({
       success: true,
